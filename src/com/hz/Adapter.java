@@ -2,13 +2,16 @@ package com.hz;
 
 public class Adapter {
 
-    private String userAnwser;
+    ConsoleReader reader;
     private String[] answers  = {"true", "yes", "oh yeah", "great", "sure", "love to", "of course", "always", "never done otherwise"};
 
-    public Boolean checkAnswer(String answer) {
-        this.userAnwser = answer;
+   public Adapter(ConsoleReader reader) {
+       this.reader = reader;
+   }
+
+    public Boolean checkAnswer() {
         for (String i:answers) {
-            if (answer.equals(i)) {
+            if (reader.readLine().equals(i)) {
                 return true;
             }
         }
